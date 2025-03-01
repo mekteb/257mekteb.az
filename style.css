@@ -1,0 +1,211 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #4CAF50;
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    padding: 10px 20px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-button:hover {
+    background-color: white;
+    color: #4CAF50;
+    border-radius: 5px;
+}
+
+main {
+    padding: 20px;
+    text-align: center;
+    padding-bottom: 60px; /* Отступ снизу для футера */
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px; /* Добавляем отступ сверху */
+    position: static; /* Убираем фиксированное позиционирование */
+    width: 100%;
+}
+
+/* Стили для галереи */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+.gallery img {
+    max-width: 200px; /* Ограничиваем ширину картинок */
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Стили для директоров и завучей */
+.directors, .deputy-directors {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.directors-container, .deputy-directors-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.director, .deputy-director {
+    text-align: center;
+}
+
+.director img, .deputy-director img {
+    width: 150px; /* Размер фото */
+    height: 150px;
+    border-radius: 50%; /* Круглые фото */
+    object-fit: cover; /* Чтобы фото не искажались */
+    border: 3px solid #4CAF50; /* Зеленая рамка */
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.director img:hover, .deputy-director img:hover {
+    transform: scale(1.1);
+    border-color: #45a049;
+}
+
+.director p, .deputy-director p {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Скрываем иконку меню по умолчанию */
+/* Стили для мобильной навигации */
+.menu-icon {
+    display: none; /* Скрываем иконку по умолчанию */
+    font-size: 24px;
+    cursor: pointer;
+    color: white;
+    padding: 10px;
+}
+
+/* Медиа-запрос для мобильных устройств */
+@media (max-width: 768px) {
+    .menu-icon {
+        display: block; /* Показываем иконку на мобильных */
+    }
+
+    .nav-list {
+        display: flex;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        transition: transform 0.3s ease-in-out; /* Плавное появление */
+        transform: translateX(-100%); /* Скрываем меню за пределами экрана */
+        position: fixed; /* Фиксируем меню */
+        top: 0;
+        left: 0;
+        width: 80%; /* Ширина меню */
+        height: 100%;
+        background-color: #4CAF50;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000; /* Убедимся, что меню поверх других элементов */
+    }
+    
+    .nav-list.active {
+        transform: translateX(0); /* Показываем меню */
+    }
+
+    .nav-list li {
+        text-align: center;
+        margin: 10px 0;
+    }
+}
+
+/* Стили для мобильной навигации */
+
+
+/* Затемнение фона при открытом меню */
+.overlay {
+    display: none; /* Скрываем затемнение по умолчанию */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный чёрный */
+    z-index: 999; /* Под меню, но поверх остального контента */
+}
+
+.overlay.active {
+    display: block; /* Показываем затемнение */
+}
+
+.nav-list li {
+    text-align: center;
+    margin: 10px 0;
+}
+
+@media (max-width: 768px) {
+    .directors-container, .deputy-directors-container {
+        flex-direction: column; /* Фото в столбик */
+        align-items: center;
+    }
+
+    .director img, .deputy-director img {
+        width: 100%; /* Фото на всю ширину */
+        max-width: 200px; /* Но не больше 200px */
+        height: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 24px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+}
